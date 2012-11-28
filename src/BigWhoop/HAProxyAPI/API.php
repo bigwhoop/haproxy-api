@@ -75,7 +75,7 @@ class API
      * @param $commandName
      * @param array $options
      * @return mixed
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function execute($commandName, array $options = array())
     {
@@ -87,10 +87,15 @@ class API
         }
         
         $commandClass = __NAMESPACE__ . '\\Command\\' . ucfirst($commandName) . 'Command';
+        
+        if (!class_exists($commandClass, true)) {
+            throw new Exception("No class for $commandName command found.");
+        }
+        
         $command = new $commandClass;
         
         if (!$command instanceof Command\Executable) {
-            throw new \InvalidArgumentException("Class $commandClass must implement the Command\\Exectuable interface.");
+            throw new Exception("Class $commandClass must implement the Command\\Exectuable interface.");
         }
         
         $command->setOptions($options);
