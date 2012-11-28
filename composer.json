@@ -1,0 +1,23 @@
+{
+  "name": "bigwhoop/haproxy-api",
+  "description": "API for HAProxy",
+  "keywords": ["haproxy", "api"],
+  "homepage": "http://github.com/bigwhoop/haproxy-api",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philippe Gerber",
+      "email": "philippe@bigwhoop.ch",
+      "homepage": "http://bigwhoop.ch"
+    }
+  ],
+  "require": {
+    "php"           : ">=5.3.0",
+    "pimple/pimple" : "dev-master"
+  },
+  "autoload": {
+    "psr-0": {"BigWhoop\\HAProxyAPI": "src/"}
+  },
+  "minimum-stability" : "dev"
+}
