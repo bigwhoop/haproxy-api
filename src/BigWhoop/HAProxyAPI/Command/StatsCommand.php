@@ -13,9 +13,8 @@ use BigWhoop\HAProxyAPI\Client\HTTPClient;
 
 class StatsCommand extends AbstractCommand
 {
-    const OPT_SORTING     = 'sorting';
-    const SORTING_NONE    = 'none';
-    const SORTING_BACKEND = 'backend';
+    const GROUPING_NONE    = 'none';
+    const GROUPING_BACKEND = 'backend';
     
     
     /**
@@ -56,12 +55,12 @@ class StatsCommand extends AbstractCommand
             }
         }
         
-        switch ($this->getOption(self::OPT_SORTING, self::SORTING_NONE))
+        switch ($this->getOption('grouping', self::GROUPING_NONE))
         {
-            case self::SORTING_NONE:
+            case self::GROUPING_NONE:
                 return $data;
             
-            case self::SORTING_BACKEND:
+            case self::GROUPING_BACKEND:
                 $sortedData = array();
                 
                 foreach ($data as $server) {
@@ -70,6 +69,14 @@ class StatsCommand extends AbstractCommand
                     }
                     
                     $sortedData[$server->pxname][] = $server;
+                }
+                
+                foreach ($sortedData as $backend => $servers) {
+                    usort($servers, function($a, $b) {
+                        return strnatcasecmp($a->svname, $b->svname);
+                    });
+                    
+                    $sortedData[$backend] = $servers;
                 }
                 
                 return $sortedData;

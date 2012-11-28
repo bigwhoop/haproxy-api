@@ -67,10 +67,10 @@ An array with plain objects of with the following properties is returned:
 
 I'm pretty sure you'll find out what the mean. They're coming from HAProxy in this format.
 
-You can also get a stats array sorted by backend.
+You can also get a stats array grouped by the backend.
 
     try {
-        $stats = $api->execute('stats', array('sorting' => HAProxyAPI\Command\StatsCommand::SORTING_BACKEND));
+        $stats = $api->execute('stats', array('grouping' => HAProxyAPI\Command\StatsCommand::GROUPING_BACKEND));
     } catch (HAProxy\Client\Exception $e) {
         // Server error
     } catch (HAProxy\Command\Exception $e) {
