@@ -82,14 +82,8 @@ You can also get a stats array grouped by the backend.
 The array is now in the following format:
 
     [
-        'backend1' => [
-            'server1' => { ... },
-            'server2' => { ... },
-        ],
-        'backend2' => [
-            'server3' => { ... },
-            ...
-        ],
+        'backend1' => [{ ... }, { ... }],
+        'backend2' => [{ ... }, ...],
         ...
     ]
 
