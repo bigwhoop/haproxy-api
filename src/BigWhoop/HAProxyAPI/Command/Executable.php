@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of Hynage.
+ * This file is part of HAProxyAPI.
  *
  * (c) Philippe Gerber <philippe@bigwhoop.ch>
  *
