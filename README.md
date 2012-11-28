@@ -45,7 +45,7 @@ Use composer.
 
 ### Disable server
 
-Same as above, just with use `disableServer` as the first argument to `$api->execute()`.
+Same as above, just use `disableServer` as the first argument to `$api->execute()`.
 
 
 ### Stats
@@ -70,12 +70,7 @@ I'm pretty sure you'll find out what the mean. They're coming from HAProxy in th
 You can also get a stats array sorted by backend.
 
     try {
-        $stats = $api->execute(
-            'stats',
-            array(
-                HAProxyAPI\Command\StatsCommand::OPT_SORTING => HAProxyAPI\Command\StatsCommand::SORTING_BACKEND,
-            )
-        );
+        $stats = $api->execute('stats', array('sorting' => HAProxyAPI\Command\StatsCommand::SORTING_BACKEND));
     } catch (HAProxy\Client\Exception $e) {
         // Server error
     } catch (HAProxy\Command\Exception $e) {
