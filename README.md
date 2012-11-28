@@ -58,7 +58,7 @@ Same as above, just use `disableServer` as the first argument to `$api->execute(
         // Data error
     }
 
-An array with plain objects of with the following properties is returned:
+An array with plain objects with the following properties is returned:
 
      pxname, svname, qcur, qmax, scur, smax, slim, stot, bin, bout, dreq, dresp, ereq, econ, eresp,
      wretr, wredis, status, weight, act, bck, chkfail, chkdown, lastchg, downtime, qlimit, pid, iid,
@@ -66,6 +66,8 @@ An array with plain objects of with the following properties is returned:
      hrspxx, hrspother, hanafail, reqrate, reqratemax, reqtot, cliabrt, srvabrt
 
 I'm pretty sure you'll find out what the mean. They're coming from HAProxy in this format.
+
+#### Grouping
 
 You can also get a stats array grouped by the backend.
 
@@ -77,7 +79,7 @@ You can also get a stats array grouped by the backend.
         // Data error
     }
 
-The array is no in the following format:
+The array is now in the following format:
 
     [
         'backend1' => [
