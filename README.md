@@ -36,9 +36,9 @@ Use composer.
         } else {
             // Action had no effect
         }
-    }  catch (HAProxy\Client\Exception $e) {
+    }  catch (HAProxyAPI\Client\Exception $e) {
        // Server error
-    } catch (HAProxy\Command\Exception $e) {
+    } catch (HAProxyAPI\Command\Exception $e) {
        // Data error
     }
 
@@ -52,9 +52,9 @@ Same as above, just use `disableServer` as the first argument to `$api->execute(
 
     try {
         $stats = $api->execute('stats');
-    } catch (HAProxy\Client\Exception $e) {
+    } catch (HAProxyAPI\Client\Exception $e) {
         // Server error
-    } catch (HAProxy\Command\Exception $e) {
+    } catch (HAProxyAPI\Command\Exception $e) {
         // Data error
     }
 
@@ -71,9 +71,9 @@ You can also get a stats array sorted by backend.
 
     try {
         $stats = $api->execute('stats', array('sorting' => HAProxyAPI\Command\StatsCommand::SORTING_BACKEND));
-    } catch (HAProxy\Client\Exception $e) {
+    } catch (HAProxyAPI\Client\Exception $e) {
         // Server error
-    } catch (HAProxy\Command\Exception $e) {
+    } catch (HAProxyAPI\Command\Exception $e) {
         // Data error
     }
 
