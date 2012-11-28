@@ -22,7 +22,7 @@ abstract class ActionCommand extends AbstractCommand
     /**
      * @param \BigWhoop\HAProxyAPI\Client\HTTPClient $client
      * @return bool     true if the action made any changes, otherwise false.
-     * @throws \Exception
+     * @throws Exception
      */
     public function execute(HTTPClient $client)
     {
@@ -54,6 +54,6 @@ abstract class ActionCommand extends AbstractCommand
             }
         }
         
-        throw new \Exception("HAProxy '$action' request for '$backend/$server' failed.");
+        throw new Exception("HAProxy '$action' request for '$backend/$server' failed.");
     }
 }

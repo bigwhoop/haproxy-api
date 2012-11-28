@@ -9,10 +9,7 @@
  */
 namespace BigWhoop\HAProxyAPI\Command;
 
-class EnableServerCommand extends ActionCommand
-{
-    /**
-     * @var string
-     */
-    protected $action = 'enable';
-}
+use BigWhoop\HAProxyAPI\Exception as BaseException;
+
+class Exception extends BaseException
+{}

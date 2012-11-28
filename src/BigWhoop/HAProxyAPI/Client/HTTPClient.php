@@ -56,7 +56,7 @@ class HTTPClient
      * @param array $params
      * @param string $method
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function request($path, array $params = array(), $method = 'get')
     {
@@ -89,7 +89,7 @@ class HTTPClient
         if (curl_errno($ch) !== 0) {
             $error = curl_error($ch);
             curl_close($ch);
-            throw new \Exception("Request to HAProxy failed: $error.");
+            throw new Exception("Request to HAProxy failed: $error.");
         }
         
         $info = curl_getinfo($ch);

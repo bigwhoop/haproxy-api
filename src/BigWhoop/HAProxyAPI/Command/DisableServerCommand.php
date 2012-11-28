@@ -9,8 +9,6 @@
  */
 namespace BigWhoop\HAProxyAPI\Command;
 
-use BigWhoop\HAProxyAPI\Client\HTTPClient;
-
 class DisableServerCommand extends ActionCommand
 {
     /**

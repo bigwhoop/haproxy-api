@@ -13,6 +13,7 @@ use BigWhoop\HAProxyAPI\Client\HTTPClient;
 
 class StatsCommand extends AbstractCommand
 {
+    const OPT_SORTING     = 'sorting';
     const SORTING_NONE    = 'none';
     const SORTING_BACKEND = 'backend';
     
@@ -20,6 +21,7 @@ class StatsCommand extends AbstractCommand
     /**
      * @param \BigWhoop\HAProxyAPI\Client\HTTPClient $client
      * @return array
+     * @throws Exception
      */
     public function execute(HTTPClient $client)
     {
@@ -54,7 +56,7 @@ class StatsCommand extends AbstractCommand
             }
         }
         
-        switch ($this->getOption('sorting', self::SORTING_NONE))
+        switch ($this->getOption(self::OPT_SORTING, self::SORTING_NONE))
         {
             case self::SORTING_NONE:
                 return $data;
@@ -73,7 +75,7 @@ class StatsCommand extends AbstractCommand
                 return $sortedData;
             
             default:
-                throw new \Exception("Invalid sorting option provided for stats command.");
+                throw new Exception("Invalid sorting option provided for stats command.");
         }
     }
 }
